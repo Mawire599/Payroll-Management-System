@@ -16,6 +16,10 @@ namespace PayrollManagementSystem
 
         private bool passwordVisible = false;
 
+        private int failedLoginAttempts = 0;
+        private const int MaxLoginAttempts = 5;
+        private bool loginLocked = false;
+
         public frmLogin()
         {
             InitializeComponent();
@@ -58,22 +62,33 @@ namespace PayrollManagementSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string user = txtUsername.Text;
+            if (loginLocked)
+            {
+                MessageBox.Show(
+                    "Login is temporarily locked because of too many failed attempts.",
+                    "Login Locked",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            string user = txtUsername.Text.Trim();
             string pass = txtPassword.Text;
 
-            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            if (string.IsNullOrWhiteSpace(user))
             {
                 MessageBox.Show(
                     "Please enter your username.",
                     "Missing Username",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
-
+                
                 txtUsername.Focus();
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            if (string.IsNullOrWhiteSpace(pass))
             {
                 MessageBox.Show(
                     "Please enter your password.",
@@ -87,9 +102,12 @@ namespace PayrollManagementSystem
 
             if (user == "Admin" && pass == "HR123")
             {
+                // Reset failed attempts after successful login
+                failedLoginAttempts = 0;
+
                 if (chkRememberMe.Checked)
                 {
-                    Properties.Settings.Default.Username = txtUsername.Text;
+                    Properties.Settings.Default.Username = user;
                     Properties.Settings.Default.RememberMe = true;
                 }
                 else
@@ -102,12 +120,44 @@ namespace PayrollManagementSystem
 
                 frmDashboard dashboard = new frmDashboard();
                 dashboard.Show();
+
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("Invalid username or password", "Login Failed",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                failedLoginAttempts++;
+
+                int attemptsRemaining = MaxLoginAttempts - failedLoginAttempts;
+
+                txtPassword.Clear();
+                txtPassword.Focus();
+
+                if (failedLoginAttempts >= MaxLoginAttempts)
+                {
+                    loginLocked = true;
+
+                    btnLogin.Enabled = false;
+                    txtUsername.Enabled = false;
+                    txtPassword.Enabled = false;
+                    chkRememberMe.Enabled = false;
+
+                    MessageBox.Show(
+                        "Too many failed login attempts.\n\n" +
+                        "The login screen has been temporarily locked.\n" +
+                        "Please restart the application before trying again.",
+                        "Login Locked",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Invalid username or password.\n\n" +
+                        "Attempts remaining: " + attemptsRemaining,
+                        "Login Failed",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
         }
 
