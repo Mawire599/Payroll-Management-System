@@ -1,0 +1,19 @@
+CREATE DATABASE PayrollDB;
+GO
+
+USE PayrollDB;
+GO
+
+CREATE TABLE Employees
+(
+    EmployeeID VARCHAR(20) NOT NULL PRIMARY KEY,
+    FullName VARCHAR(100) NOT NULL,
+    Department VARCHAR(50) NOT NULL,
+    HourlyRate DECIMAL(10,2) NOT NULL,
+    HoursWorked INT NOT NULL,
+    GrossPay DECIMAL(10,2),
+    Tax DECIMAL(10,2),
+    NetPay DECIMAL(10,2),
+    DateCreated DATETIME DEFAULT GETDATE()
+);
+GO
