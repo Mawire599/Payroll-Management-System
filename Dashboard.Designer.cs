@@ -31,12 +31,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTime = new System.Windows.Forms.Label();
@@ -111,7 +111,7 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1837, 114);
+            this.pnlHeader.Size = new System.Drawing.Size(1833, 114);
             this.pnlHeader.TabIndex = 7;
             // 
             // lblTime
@@ -119,7 +119,7 @@
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.Blue;
-            this.lblTime.Location = new System.Drawing.Point(1630, 54);
+            this.lblTime.Location = new System.Drawing.Point(1202, 57);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(125, 38);
             this.lblTime.TabIndex = 4;
@@ -130,7 +130,7 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblDate.Location = new System.Drawing.Point(1518, 64);
+            this.lblDate.Location = new System.Drawing.Point(986, 69);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(106, 23);
             this.lblDate.TabIndex = 3;
@@ -181,7 +181,7 @@
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMenu.Location = new System.Drawing.Point(0, 114);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(210, 774);
+            this.pnlMenu.Size = new System.Drawing.Size(210, 785);
             this.pnlMenu.TabIndex = 8;
             // 
             // btnLogout
@@ -270,7 +270,7 @@
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(210, 114);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1627, 774);
+            this.pnlMain.Size = new System.Drawing.Size(1623, 785);
             this.pnlMain.TabIndex = 9;
             // 
             // panelEmployeeDetails
@@ -281,10 +281,11 @@
             this.panelEmployeeDetails.Controls.Add(this.lblDetailName);
             this.panelEmployeeDetails.Controls.Add(this.lblDetailEmployeeID);
             this.panelEmployeeDetails.Controls.Add(this.lblEmployeeDetailsTitle);
-            this.panelEmployeeDetails.Location = new System.Drawing.Point(1335, 239);
+            this.panelEmployeeDetails.Location = new System.Drawing.Point(1335, 238);
             this.panelEmployeeDetails.Name = "panelEmployeeDetails";
             this.panelEmployeeDetails.Size = new System.Drawing.Size(258, 429);
             this.panelEmployeeDetails.TabIndex = 12;
+            this.panelEmployeeDetails.Paint += new System.Windows.Forms.PaintEventHandler(this.panelEmployeeDetails_Paint);
             // 
             // lblDetailDateCreated
             // 
@@ -403,32 +404,32 @@
             // 
             // chartDepartment
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartDepartment.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartDepartment.Legends.Add(legend1);
+            chartArea11.Name = "ChartArea1";
+            this.chartDepartment.ChartAreas.Add(chartArea11);
+            legend11.Name = "Legend1";
+            this.chartDepartment.Legends.Add(legend11);
             this.chartDepartment.Location = new System.Drawing.Point(1022, 178);
             this.chartDepartment.Name = "chartDepartment";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartDepartment.Series.Add(series1);
+            series11.ChartArea = "ChartArea1";
+            series11.Legend = "Legend1";
+            series11.Name = "Series1";
+            this.chartDepartment.Series.Add(series11);
             this.chartDepartment.Size = new System.Drawing.Size(295, 300);
             this.chartDepartment.TabIndex = 6;
             this.chartDepartment.Text = "chart1";
             // 
             // chartPayroll
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartPayroll.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartPayroll.Legends.Add(legend2);
+            chartArea12.Name = "ChartArea1";
+            this.chartPayroll.ChartAreas.Add(chartArea12);
+            legend12.Name = "Legend1";
+            this.chartPayroll.Legends.Add(legend12);
             this.chartPayroll.Location = new System.Drawing.Point(33, 178);
             this.chartPayroll.Name = "chartPayroll";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartPayroll.Series.Add(series2);
+            series12.ChartArea = "ChartArea1";
+            series12.Legend = "Legend1";
+            series12.Name = "Series1";
+            this.chartPayroll.Series.Add(series12);
             this.chartPayroll.Size = new System.Drawing.Size(983, 300);
             this.chartPayroll.TabIndex = 5;
             this.chartPayroll.Text = "chart1";
@@ -436,9 +437,9 @@
             // panel5
             // 
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 680);
+            this.panel5.Location = new System.Drawing.Point(0, 691);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1627, 94);
+            this.panel5.Size = new System.Drawing.Size(1623, 94);
             this.panel5.TabIndex = 4;
             // 
             // panel4
@@ -579,8 +580,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1837, 888);
+            this.ClientSize = new System.Drawing.Size(1833, 899);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlHeader);

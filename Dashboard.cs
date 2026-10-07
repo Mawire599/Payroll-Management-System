@@ -487,6 +487,11 @@ namespace PayrollManagementSystem
             // For now, this can be left empty or display the current time.
             MessageBox.Show("Current Time: " + DateTime.Now.ToString("hh:mm tt"), "Time");
         }
+
+        private void panelEmployeeDetails_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
     
 }
